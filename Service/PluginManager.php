@@ -9,7 +9,7 @@ use Symforce\DiscuzBundle\Service\Helper\EmbedHelper ;
 use Symforce\DiscuzBundle\Service\Helper\ActionHelper ;
 
 /**
- * @DI\Service("app.bbs.plugin_manager")
+ * @DI\Service("sf.bbs.plugin_manager")
  */
 class PluginManager {
 
@@ -98,7 +98,7 @@ class PluginManager {
         $parent = $rc1->getParentClass() ;
 
         if( !$parent  || self::PM_BASE_CLASS === $parent->getName() || !is_subclass_of( $pluginModule, self::PM_BASE_CLASS ) ) {
-            throw new \Exception( sprintf("app.bbs.plugin.module invalid name(%s) on class(%s) file(%s) must extends %s\\*", $name ,
+            throw new \Exception( sprintf("sf.bbs.plugin.module invalid name(%s) on class(%s) file(%s) must extends %s\\*", $name ,
                 $rc1->getName(),
                 $rc1->getFileName() ,
                 self::PM_BASE_CLASS
@@ -106,7 +106,7 @@ class PluginManager {
         }
 
         if( !preg_match('/^[a-z][a-z0-9\_]+$/', $name) ) {
-            throw new \Exception( sprintf("app.bbs.plugin.module invalid name(%s) on class(%s) file(%s)", $name ,
+            throw new \Exception( sprintf("sf.bbs.plugin.module invalid name(%s) on class(%s) file(%s)", $name ,
                 $rc1->getName(),
                 $rc1->getFileName()
             )  );
@@ -114,7 +114,7 @@ class PluginManager {
 
         if( isset( $this->_modules[ $name ]) ) {
             $rc2    = new \ReflectionObject( $this->_modules[ $name ] ) ;
-            throw new \Exception( sprintf("app.bbs.plugin.module(%s) duplicate for class(%s,%s), file(%s,%s)", $name ,
+            throw new \Exception( sprintf("sf.bbs.plugin.module(%s) duplicate for class(%s,%s), file(%s,%s)", $name ,
                 $rc1->getName(), $rc2->getName(),
                 $rc1->getFileName(), $rc2->getFileName()
             )  );
@@ -122,7 +122,7 @@ class PluginManager {
         $type   = $pluginModule->getType() ;
         if( $type && !isset($this->_plugin_modules_types[$type]) ) {
             throw new \Exception( sprintf(
-                "app.bbs.plugin.module(name: %s,\n class: %s,\n file: %s) \n type(%s) is invalid, available values ( %s ) ",
+                "sf.bbs.plugin.module(name: %s,\n class: %s,\n file: %s) \n type(%s) is invalid, available values ( %s ) ",
                 $name ,
                 $rc1->getName(),
                 $rc1->getFileName(),
@@ -197,7 +197,7 @@ class PluginManager {
             throw new \Exception('big error!');
         }
 
-        if( !$this->_container->getParameter('app.bbs.plugin.enabled') ) {
+        if( !$this->_container->getParameter('sf.bbs.plugin.enabled') ) {
             return ;
         }
 
@@ -303,7 +303,7 @@ class PluginManager {
             ->write('<')
             ->writeln('?php')
             ->writeln("if(!defined('IN_DISCUZ')) exit('Access Denied');")
-            ->writeln('\\Dev::getContainer()->get("app.bbs.plugin_manager")->connect();')
+            ->writeln('\\Dev::getContainer()->get("sf.bbs.plugin_manager")->connect();')
         ;
         foreach($this->_embed_helpers as $group => $group_hellers) {
             $writer->writeln( sprintf("\n// %s", $group)) ;
@@ -397,7 +397,7 @@ class PluginManager {
                     $writer->writeln(');');
                 }
                 if( $_embed_function_count > 1 ) {
-                    $writer->writeln( 'return \Dev::getContainer()->get("app.bbs.plugin_manager")->getMergedEmbedFunctionReturnValues($cache);');
+                    $writer->writeln( 'return \Dev::getContainer()->get("sf.bbs.plugin_manager")->getMergedEmbedFunctionReturnValues($cache);');
                 }
                 $writer
                     ->outdent()
@@ -415,7 +415,7 @@ class PluginManager {
             $plugin_module->compile( $_modules_array ) ;
         }
 
-        if( $this->_container->getParameter('app.bbs.plugin.debug') ) {
+        if( $this->_container->getParameter('sf.bbs.plugin.debug') ) {
             $_modules_array['system']  = 2 ;
         }
         $_modules_array['extra'] = array(

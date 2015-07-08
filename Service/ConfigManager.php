@@ -5,7 +5,7 @@ namespace Symforce\DiscuzBundle\Service;
 use JMS\DiExtraBundle\Annotation as DI;
 
 /**
- * @DI\Service("app.bbs.config_manager")
+ * @DI\Service("sf.bbs.config_manager")
  */
 final class ConfigManager {
 
@@ -120,7 +120,7 @@ final class ConfigManager {
 
         // ---------------------------  CONFIG Plugin Developer  --------------------------- //
         if ( $this->_container->getParameter('kernel.debug') ) {
-            $_config['plugindeveloper'] = $this->_container->getParameter('app.bbs.plugin.developer') ;
+            $_config['plugindeveloper'] = $this->_container->getParameter('sf.bbs.plugin.developer') ;
         }
     }
 

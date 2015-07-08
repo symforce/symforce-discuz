@@ -10,14 +10,14 @@ class PluginResourcePass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        if (!$container->hasDefinition('app.bbs.plugin_manager')) {
+        if (!$container->hasDefinition('sf.bbs.plugin_manager')) {
             return;
         }
 
-        $definition = $container->getDefinition('app.bbs.plugin_manager');
+        $definition = $container->getDefinition('sf.bbs.plugin_manager');
 
         $taggedServices = $container->findTaggedServiceIds(
-            'app.bbs.plugin.module'
+            'sf.bbs.plugin.module'
         );
 
         foreach ($taggedServices as $id => $attributes) {
