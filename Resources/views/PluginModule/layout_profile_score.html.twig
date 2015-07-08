@@ -4,11 +4,11 @@
 
 {% block html_block %}
     {% set tmp = _s('[actives][credit]', ' class="a"') %}
-    {{ set_lazy_block(content_twig_templte, 'app_lazy_content_block', 'app_lazy_content_block') }}
+    {{ set_lazy_block(content_twig_templte, 'sf_bbs_lazy_content_block', 'sf_bbs_lazy_content_block') }}
     {{ bbs_twig_template('SymforceDiscuzBundle:PluginModule:layout_profile_score_base.html.twig', 'home/spacecp_credit_base' ) }}
 {% endblock %}
 
-{% block app_lazy_content_block %}
+{% block sf_bbs_lazy_content_block %}
     {% if sf_bbs_pm.actionhelpers|length > 1 %}
         {% block pm_action_helpers %}
             <ul class="tb cl">

@@ -12,12 +12,14 @@ class UserSecurityFactory implements SecurityFactoryInterface
 {
     public function create(ContainerBuilder $container, $id, $config, $userProvider, $defaultEntryPoint)
     {
-        $providerId = 'sf.security.authentication.provider.'.$id;
+        $providerId = 'sf.bbs.authentication.provider.'.$id ;
+        \Dev::dump($providerId) ; exit;
+
         $container
             ->setDefinition($providerId, new DefinitionDecorator('sf.bbs.authentication.provider'))
             ->replaceArgument(0, new Reference($userProvider))
         ;
-		
+        $listenerId = 'sf.bbs.authentication.listener.'.$id ;
         return array($providerId, $listenerId, $defaultEntryPoint);
     }
 
@@ -28,7 +30,7 @@ class UserSecurityFactory implements SecurityFactoryInterface
 
     public function getKey()
     {
-        return 'bbs_login';
+        return 'sf_bbs_login';
     }
 
     public function addConfiguration(NodeDefinition $node)

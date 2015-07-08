@@ -1,0 +1,5 @@
+
+services:
+    sf.bbs.authentication.provider:
+        class: Symforce\DiscuzBundle\Security\Provider\AuthenticationProvider
+        arguments: ["", "%kernel.cache_dir%/security/app"]

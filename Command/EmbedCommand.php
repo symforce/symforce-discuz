@@ -20,7 +20,7 @@ class EmbedCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('sf:discuz:embed')
+            ->setName('sf:bbs:embed')
             ;
     }
 

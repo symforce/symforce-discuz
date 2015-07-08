@@ -3,12 +3,12 @@
 {% set content_twig_templte = content_twig_templte is defined ? content_twig_templte : _self %}
 
 {% block html_block %}
-    {{ _s('modtpl', 'sfapp:app_lazy_content_block') }}
-    {{  set_lazy_block(content_twig_templte, 'app_lazy_content_block', 'app_lazy_content_block' ) }}
+    {{ _s('modtpl', 'sf:bbs_lazy_content_block') }}
+    {{  set_lazy_block(content_twig_templte, 'sf_bbs_lazy_content_block', 'sf_bbs_lazy_content_block' ) }}
     {{ bbs_template('forum/modcp') }}
 {% endblock %}
 
-{% block app_lazy_content_block %}
+{% block sf_bbs_lazy_content_block %}
 
     {% if sf_bbs_pm.actionhelpers|length > 1 %}
 

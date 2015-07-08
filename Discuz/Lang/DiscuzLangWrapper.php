@@ -20,7 +20,7 @@ class DiscuzLangWrapper {
         if( !defined('DISCUZ_ROOT') ) {
             throw new \Exception( 'discuz is not load yet!');
         }
-        $this->chroot($root, $path ) ;
+        $this->chroot($root) ;
     }
 
     protected function chroot($root) {
