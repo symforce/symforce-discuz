@@ -129,7 +129,7 @@ final class ConfigManager {
 
     public function getUserCenterConfiguration() {
         return array(
-            'UC_CONNECT'    => '' ,
+            'UC_CONNECT'    => 'mysql' ,
             'UC_DBHOST'     => $this->_container->getParameter('database_host') ,
             'UC_DBUSER'     => $this->_container->getParameter('database_user') ,
             'UC_DBPW'       => $this->_container->getParameter('database_password') ,
