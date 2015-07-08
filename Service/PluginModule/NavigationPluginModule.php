@@ -11,7 +11,7 @@ abstract class NavigationPluginModule extends \Symforce\DiscuzBundle\Service\Plu
     /**
      * @var string
      */
-    protected $dispatch_layout = 'AppForumBundle:PluginModule:nav_admin.html.twig' ;
+    protected $dispatch_layout = 'SymforceDiscuzBundle:PluginModule:nav_admin.html.twig' ;
 
     protected function getPluginConfig() {
         return array(

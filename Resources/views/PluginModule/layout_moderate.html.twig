@@ -1,4 +1,4 @@
-{% extends 'AppForumBundle:PluginModule:layout.html.twig' %}
+{% extends 'SymforceDiscuzBundle:PluginModule:layout.html.twig' %}
 
 {% set content_twig_templte = content_twig_templte is defined ? content_twig_templte : _self %}
 
@@ -10,12 +10,12 @@
 
 {% block app_lazy_content_block %}
 
-    {% if app_pm.actionhelpers|length > 1 %}
+    {% if sf_bbs_pm.actionhelpers|length > 1 %}
 
         {% block pm_action_helpers %}
             <ul class="tb cl">
-                {% for action in app_pm.actionhelpers %}
-                    <li {% if action.isCurrentAction() %}class="a"{% endif %}><a href="{{ app_pm.getDispatchUrl(action) }}">{{ action.config.title }}</a></li>
+                {% for action in sf_bbs_pm.actionhelpers %}
+                    <li {% if action.isCurrentAction() %}class="a"{% endif %}><a href="{{ sf_bbs_pm.getDispatchUrl(action) }}">{{ action.config.title }}</a></li>
                 {% endfor %}
             </ul>
         {% endblock %}

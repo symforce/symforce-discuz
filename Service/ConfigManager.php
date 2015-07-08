@@ -24,7 +24,7 @@ final class ConfigManager {
     }
 
     private function getWebHost(){
-        $host = $this->_container->getParameter('app.web_host') ;
+        $host = $this->_container->getParameter('sf.web_host') ;
         if( isset($_SERVER['HTTP_HOST']) ) {
             $host   = 'http://' . $_SERVER['HTTP_HOST'] ;
         }

@@ -191,7 +191,7 @@ class PreCommonMember
 
     /**
      * @var \Doctrine\ORM\PersistentCollection
-     * ORM\OneToMany(targetEntity="App\ModeratorBundle\Entity\ModeratorWage", mappedBy="common_member", fetch="EXTRA_LAZY")
+     * ORM\OneToMany(targetEntity="Symforce\DiscuzBundle\Entity\ModeratorWage", mappedBy="common_member", fetch="EXTRA_LAZY")
      * ORM\JoinColumn(name="uid", referencedColumnName="uid")
      */
     public $memberModerators ;

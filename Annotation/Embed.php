@@ -20,7 +20,7 @@ final class Embed extends AbstractAnnotation
     /** @var string */
     public $order ;
 
-    const BASE_CLASS_NAME   = '\\App\\ForumBundle\\Service\\PluginModule\\EmbedPluginModule';
+    const BASE_CLASS_NAME   = '\\Symforce\\DiscuzBundle\\Service\\PluginModule\\EmbedPluginModule';
 
     public function checkMethod(\ReflectionMethod $method) {
         if( $method->isPrivate() || $method->isProtected() ) {

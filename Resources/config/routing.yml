@@ -1,4 +1,4 @@
 
 _app_forum_default:
-    resource: "@AppForumBundle/Controller/DiscuzController.php"
+    resource: "@SymforceDiscuzBundle/Controller/DiscuzController.php"
     type:     annotation

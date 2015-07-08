@@ -1,6 +1,6 @@
 <?php
 
-namespace App\AdminBundle\Security\Provider;
+namespace Symforce\DiscuzBundle\Security\Provider;
 
 use Symfony\Component\Security\Core\User\UserProviderInterface ;
 use Symfony\Component\Security\Core\User\UserInterface ;
@@ -8,11 +8,11 @@ use Symfony\Component\Security\Core\User\UserInterface ;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 
-use App\AdminBundle\Security\Authentication\Token\UserToken;
+use Symforce\DiscuzBundle\Security\Authentication\Token\UserToken;
 use JMS\DiExtraBundle\Annotation as DI;
 
 /**
- * @DI\Service("app.user_provider.username_email")
+ * @DI\Service("sf.user_provider.username_email")
  */
 class UserProvider implements UserProviderInterface {
 
@@ -22,7 +22,7 @@ class UserProvider implements UserProviderInterface {
          */
         $em = \Dev::getContainer()->get('doctrine')->getManager() ;
 
-        $user = $em->getRepository('App\\AdminBundle\\Entity\\User')->findOneBy(array(
+        $user = $em->getRepository('Symforce\\DiscuzBundle\\Entity\\User')->findOneBy(array(
             'username'   => $username ,
         )) ;
 
@@ -39,7 +39,7 @@ class UserProvider implements UserProviderInterface {
          */
         $em = \Dev::getContainer()->get('doctrine')->getManager() ;
 
-        $user = $em->getRepository('App\\AdminBundle\\Entity\\User')->findOneBy(array(
+        $user = $em->getRepository('Symforce\\DiscuzBundle\\Entity\\User')->findOneBy(array(
             'uid'   => $id ,
         )) ;
 

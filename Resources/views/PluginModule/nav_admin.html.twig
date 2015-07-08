@@ -3,10 +3,10 @@
 
 
 {% block pm_action_helpers %}
-    <h3>{{ app_pm.title }}</h3>
+    <h3>{{ sf_bbs_pm.title }}</h3>
     <ul>
-        {% for action in app_pm.actionhelpers %}
-            <li {% if action.isCurrentAction() %}class="current"{% endif %}><a href="{{ app_pm.getDispatchUrl(action) }}">{{ action.config.title }}</a></li>
+        {% for action in sf_bbs_pm.actionhelpers %}
+            <li {% if action.isCurrentAction() %}class="current"{% endif %}><a href="{{ sf_bbs_pm.getDispatchUrl(action) }}">{{ action.config.title }}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}

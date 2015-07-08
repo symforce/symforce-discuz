@@ -11,7 +11,7 @@ abstract class AdminCenterPluginModule extends IncludePluginModule {
     /**
      * @var string
      */
-    protected $dispatch_layout = 'AppForumBundle:PluginModule:layout_admin.html.twig' ;
+    protected $dispatch_layout = 'SymforceDiscuzBundle:PluginModule:layout_admin.html.twig' ;
 
     protected function getPluginConfig() {
         return array(

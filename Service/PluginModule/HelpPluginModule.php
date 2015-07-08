@@ -12,7 +12,7 @@ abstract class HelpPluginModule extends IncludePluginModule {
     /**
      * @var string
      */
-    protected $dispatch_layout = 'AppForumBundle:PluginModule:layout_help.html.twig' ;
+    protected $dispatch_layout = 'SymforceDiscuzBundle:PluginModule:layout_help.html.twig' ;
 
     protected function getPluginConfig() {
         return array(

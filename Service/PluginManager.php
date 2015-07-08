@@ -13,10 +13,10 @@ use Symforce\DiscuzBundle\Service\Helper\ActionHelper ;
  */
 class PluginManager {
 
-    const ENTITY_CLASS_PLUGIN   = 'App\\ForumBundle\\Entity\Plugin' ;
-    const PM_BASE_CLASS   = 'App\\ForumBundle\\Service\\PluginModule' ;
-    const PM_ANNOTATION_ACTION = 'App\\ForumBundle\\Annotation\\Action' ;
-    const PM_ANNOTATION_EMBED = 'App\\ForumBundle\\Annotation\\Embed' ;
+    const ENTITY_CLASS_PLUGIN   = 'Symforce\\DiscuzBundle\\Entity\Plugin' ;
+    const PM_BASE_CLASS   = 'Symforce\\DiscuzBundle\\Service\\PluginModule' ;
+    const PM_ANNOTATION_ACTION = 'Symforce\\DiscuzBundle\\Annotation\\Action' ;
+    const PM_ANNOTATION_EMBED = 'Symforce\\DiscuzBundle\\Annotation\\Embed' ;
 
 
     /**
@@ -460,13 +460,13 @@ class PluginManager {
             /**
              * @var $user \Symforce\DiscuzBundle\Entity\User
              */
-            $user = $em->getRepository('App\\AdminBundle\\Entity\\User')->find($_G['uid']) ;
+            $user = $em->getRepository('Symforce\\DiscuzBundle\\Entity\\User')->find($_G['uid']) ;
             if( !$user ) {
                 throw new \Exception( sprintf('user(id=%s) not exists!', $_G['uid'])) ;
             }
             $user->setupDiscuzRoles($em, $_G);
 
-            $token = new \App\AdminBundle\Security\Authentication\Token\UserToken() ;
+            $token = new \Symforce\DiscuzBundle\Security\Authentication\Token\UserToken() ;
             $token->setUser($user) ;
             $token->setUserId( $user->getId() ) ;
             $security_context->setToken( $token ) ;

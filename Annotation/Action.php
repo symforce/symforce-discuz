@@ -26,7 +26,7 @@ final class Action extends AbstractAnnotation
     /** @var string */
     public $template ;
 
-    const BASE_CLASS_NAME = '\\App\\ForumBundle\\Service\\PluginModule\\IncludePluginModule';
+    const BASE_CLASS_NAME = '\\Symforce\\DiscuzBundle\\Service\\PluginModule\\IncludePluginModule';
 
     public function checkMethod(\ReflectionMethod $method) {
 

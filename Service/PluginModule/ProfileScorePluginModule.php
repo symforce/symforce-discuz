@@ -9,6 +9,6 @@ abstract class ProfileScorePluginModule extends ProfilePluginModule {
     /**
      * @var string
      */
-    protected $dispatch_layout = 'AppForumBundle:PluginModule:layout_profile_score.html.twig' ;
+    protected $dispatch_layout = 'SymforceDiscuzBundle:PluginModule:layout_profile_score.html.twig' ;
 
 }

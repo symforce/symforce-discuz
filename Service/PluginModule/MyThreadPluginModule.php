@@ -12,7 +12,7 @@ abstract class MyThreadPluginModule extends IncludePluginModule {
     /**
      * @var string
      */
-    protected $dispatch_layout = 'AppForumBundle:PluginModule:layout_my_thread.html.twig' ;
+    protected $dispatch_layout = 'SymforceDiscuzBundle:PluginModule:layout_my_thread.html.twig' ;
 
     protected function getPluginConfig() {
         return array(

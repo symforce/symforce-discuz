@@ -1,6 +1,6 @@
 <?php
 
-namespace App\AdminBundle\Security\Authentication\Token;
+namespace Symforce\DiscuzBundle\Security\Authentication\Token;
 
 
 use Symfony\Component\Security\Core\Authentication\Token\AbstractToken;

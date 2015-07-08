@@ -9,7 +9,7 @@ abstract class ProfileInformationPluginModule extends ProfilePluginModule {
     /**
      * @var string
      */
-    protected $dispatch_layout = 'AppForumBundle:PluginModule:layout_profile_info.html.twig' ;
+    protected $dispatch_layout = 'SymforceDiscuzBundle:PluginModule:layout_profile_info.html.twig' ;
 
 
 }

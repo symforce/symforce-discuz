@@ -1,6 +1,6 @@
 <?php
 
-namespace App\AdminBundle\Security\Listener;
+namespace Symforce\DiscuzBundle\Security\Listener;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
@@ -9,11 +9,11 @@ use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface;
 
-use App\AdminBundle\Security\Authentication\Token\UserToken;
+use Symforce\DiscuzBundle\Security\Authentication\Token\UserToken;
 use JMS\DiExtraBundle\Annotation as DI;
 
 /**
- * @DI\Service("app.security.authentication.listener")
+ * @DI\Service("sf.bbs.authentication.listener")
  */
 class UserLoginListener implements ListenerInterface
 {

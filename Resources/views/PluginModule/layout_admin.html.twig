@@ -3,8 +3,8 @@
 <div class="itemtitle">
     {% block pm_action_helpers %}
         <ul class="tab1">
-        {% for action in app_pm.actionhelpers %}
-           <li {% if action.isCurrentAction() %}class="current"{% endif %}><a href="{{ app_pm.getDispatchUrl(action) }}"><span>{{ action.config.title }}</span></a></li>
+        {% for action in sf_bbs_pm.actionhelpers %}
+           <li {% if action.isCurrentAction() %}class="current"{% endif %}><a href="{{ sf_bbs_pm.getDispatchUrl(action) }}"><span>{{ action.config.title }}</span></a></li>
         {% endfor %}
         </ul>
     {% endblock %}

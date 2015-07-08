@@ -1,6 +1,6 @@
 <?php
 
-namespace App\AdminBundle\Security\Provider;
+namespace Symforce\DiscuzBundle\Security\Provider;
 
 
 use Symfony\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface;
@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\Exception\NonceExpiredException;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
 
-use App\AdminBundle\Security\Authentication\Token\UserToken;
+use Symforce\DiscuzBundle\Security\Authentication\Token\UserToken;
 
 use JMS\DiExtraBundle\Annotation as DI;
 
@@ -48,7 +48,7 @@ class AuthenticationProvider implements AuthenticationProviderInterface
                 \Dev::dump('The app authentication failed.');
                 exit ;
             }
-            $host = \Dev::getContainer()->getParameter('app.web_host') ;
+            $host = \Dev::getContainer()->getParameter('sf.web_host') ;
             header('location:' . $host );
             exit ;
         }

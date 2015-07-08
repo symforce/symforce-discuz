@@ -1,6 +1,6 @@
 <?php
 
-namespace App\AdminBundle\Security\Factory;
+namespace Symforce\DiscuzBundle\Security\Factory;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
@@ -12,15 +12,12 @@ class UserSecurityFactory implements SecurityFactoryInterface
 {
     public function create(ContainerBuilder $container, $id, $config, $userProvider, $defaultEntryPoint)
     {
-        $providerId = 'security.authentication.provider.app.'.$id;
+        $providerId = 'sf.security.authentication.provider.'.$id;
         $container
-            ->setDefinition($providerId, new DefinitionDecorator('app.security.authentication.provider'))
+            ->setDefinition($providerId, new DefinitionDecorator('sf.bbs.authentication.provider'))
             ->replaceArgument(0, new Reference($userProvider))
         ;
-
-        $listenerId = 'security.authentication.listener.app.'.$id;
-        $listener = $container->setDefinition($listenerId, new DefinitionDecorator('app.security.authentication.listener'));
-
+		
         return array($providerId, $listenerId, $defaultEntryPoint);
     }
 
@@ -31,7 +28,7 @@ class UserSecurityFactory implements SecurityFactoryInterface
 
     public function getKey()
     {
-        return 'app';
+        return 'bbs_login';
     }
 
     public function addConfiguration(NodeDefinition $node)

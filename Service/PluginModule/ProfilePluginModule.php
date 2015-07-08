@@ -19,7 +19,7 @@ abstract class ProfilePluginModule  extends IncludePluginModule {
     /**
      * @var string
      */
-    protected $dispatch_layout = 'AppForumBundle:PluginModule:layout_profile.html.twig' ;
+    protected $dispatch_layout = 'SymforceDiscuzBundle:PluginModule:layout_profile.html.twig' ;
 
     protected function getPluginConfig() {
         return array(

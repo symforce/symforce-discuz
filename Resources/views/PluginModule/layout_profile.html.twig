@@ -5,7 +5,7 @@
     <div class="z">
         <a href="./" class="nvhm">{{ _G['setting']['bbname'] }}</a> <em>&rsaquo;</em>
         <a href="home.php?mod=spacecp">设置</a> <em>&rsaquo;</em>
-        {{ app_pm.title }}
+        {{ sf_bbs_pm.title }}
     </div>
 </div>
 
@@ -13,13 +13,13 @@
 
     <div class="mn">
         <div class="bm bw0">
-            <h1 class="mt"> {{ app_pm.title }} </h1>
+            <h1 class="mt"> {{ sf_bbs_pm.title }} </h1>
 
-            {% if app_pm.actionhelpers|length > 1 %}
+            {% if sf_bbs_pm.actionhelpers|length > 1 %}
             {% block pm_action_helpers %}
                 <ul class="tb cl">
-                    {% for action in app_pm.actionhelpers %}
-                        <li {% if action.isCurrentAction() %}class="a"{% endif %}><a href="{{ app_pm.getDispatchUrl(action) }}">{{ action.config.title }}</a></li>
+                    {% for action in sf_bbs_pm.actionhelpers %}
+                        <li {% if action.isCurrentAction() %}class="a"{% endif %}><a href="{{ sf_bbs_pm.getDispatchUrl(action) }}">{{ action.config.title }}</a></li>
                     {% endfor %}
                 </ul>
             {% endblock %}

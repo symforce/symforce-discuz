@@ -189,7 +189,7 @@ abstract class IncludePluginModule extends \Symforce\DiscuzBundle\Service\Plugin
     /**
      * @var string
      */
-    protected $dispatch_layout = 'AppForumBundle:PluginModule:layout_admin.html.twig' ;
+    protected $dispatch_layout = 'SymforceDiscuzBundle:PluginModule:layout_admin.html.twig' ;
 
     /**
      * @var bool
@@ -260,9 +260,9 @@ abstract class IncludePluginModule extends \Symforce\DiscuzBundle\Service\Plugin
             if( !$template ) {
                 $template = sprintf('%s:PluginModule:%s_%s.html.twig', $this->bundle_name, $this->getName(), $helper->config->name ) ;
             }
-            $response['app_pm_action_helper'] =  $helper ;
-            $response['app_pm'] =  $this ;
-            $response['app_pm_layout'] =  $this->dispatch_layout ;
+            $response['sf_bbs_pm_action_helper'] =  $helper ;
+            $response['sf_bbs_pm'] =  $this ;
+            $response['sf_bbs_pm_layout'] =  $this->dispatch_layout ;
             $_response_content   =   $this->render($template , $response) ;
             $response   = new \Symfony\Component\HttpFoundation\Response( $_response_content ) ;
         } else if( is_string($response) ) {

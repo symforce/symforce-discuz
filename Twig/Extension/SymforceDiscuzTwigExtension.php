@@ -9,10 +9,10 @@ use CG\Core\ClassUtils;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * @DI\Service("app.twig.extension")
+ * @DI\Service("sf.bbs.twig.extension")
  * @DI\Tag("twig.extension")
  */
-final class AppForumTwigExtension extends \Twig_Extension implements \Symfony\Component\DependencyInjection\ContainerAwareInterface
+final class SymforceDiscuzTwigExtension extends \Twig_Extension implements \Symfony\Component\DependencyInjection\ContainerAwareInterface
 {
     private $loader;
 
@@ -277,6 +277,6 @@ final class AppForumTwigExtension extends \Twig_Extension implements \Symfony\Co
      */
     public function getName()
     {
-        return 'app.bbs';
+        return 'sf.bbs';
     }
 }

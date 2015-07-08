@@ -9,7 +9,7 @@ abstract class ModerateToolPluginModule extends ModerateBasePluginModule {
     /**
      * @var string
      */
-    protected $dispatch_layout = 'AppForumBundle:PluginModule:layout_moderate_tools.html.twig' ;
+    protected $dispatch_layout = 'SymforceDiscuzBundle:PluginModule:layout_moderate_tools.html.twig' ;
 
 
 } 
