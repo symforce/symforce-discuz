@@ -13,13 +13,15 @@ class UserSecurityFactory implements SecurityFactoryInterface
     public function create(ContainerBuilder $container, $id, $config, $userProvider, $defaultEntryPoint)
     {
         $providerId = 'sf.bbs.authentication.provider.'.$id ;
-        \Dev::dump($providerId) ; exit;
 
         $container
             ->setDefinition($providerId, new DefinitionDecorator('sf.bbs.authentication.provider'))
             ->replaceArgument(0, new Reference($userProvider))
         ;
-        $listenerId = 'sf.bbs.authentication.listener.'.$id ;
+
+        $listenerId = 'sf.bbs.authentication.listener.' . $id ;
+        $container->setDefinition($listenerId, new DefinitionDecorator('sf.bbs.authentication.listener'));
+
         return array($providerId, $listenerId, $defaultEntryPoint);
     }
 

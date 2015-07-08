@@ -25,6 +25,12 @@ class SymforceDiscuzBundle extends Bundle
     {
         parent::build($container);
         $container->addCompilerPass(new DependencyInjection\Compiler\PluginResourcePass());
+
+        /**
+         * @var $extension \Symfony\Bundle\SecurityBundle\DependencyInjection\SecurityExtension
+         */
+        $extension = $container->getExtension('security');
+        $extension->addSecurityListenerFactory( new \Symforce\DiscuzBundle\Security\Factory\UserSecurityFactory() );
     }
 
 }
