@@ -38,7 +38,9 @@ trait SymforceDiscuzDev {
 
         $kernel->boot() ;
         self::$_container   = $kernel->getContainer() ;
-        self::$_container->get('sf.bbs.plugin_manager')->setup() ;
+        if( self::$_container->getParameter('sf.bbs.plugin.enabled') ) {
+            self::$_container->get('sf.bbs.plugin_manager')->setup() ;
+        }
 
         if( $request ) {
             self::$_in_symfony_firewall = true ;

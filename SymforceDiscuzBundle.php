@@ -16,8 +16,8 @@ class SymforceDiscuzBundle extends Bundle
      */
     public function registerCommands(Application $application)
     {
-        $application->add(new Command\EmbedCommand());
-
+        $application->add(new Command\KeysExportCommand());
+        $application->add(new Command\PlguinExportCommand());
     }
 
 

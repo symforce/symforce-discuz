@@ -10,7 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 use Symfony\Component\Filesystem\Filesystem ;
 
-class EmbedCommand extends ContainerAwareCommand
+class PlguinExportCommand extends ContainerAwareCommand
 {
 
 
@@ -20,7 +20,7 @@ class EmbedCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('sf:bbs:embed')
+            ->setName('sf:bbs:plugin_export')
             ;
     }
 
