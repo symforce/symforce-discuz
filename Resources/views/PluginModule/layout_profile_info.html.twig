@@ -1,0 +1,30 @@
+{% extends 'AppForumBundle:PluginModule:layout.html.twig' %}
+
+{% set content_twig_templte = content_twig_templte is defined ? content_twig_templte : _self %}
+
+{% block html_block %}
+    {% set tmp = _s('[actives][profile]', ' class="a"') %}
+    {{ set_lazy_block(content_twig_templte, 'app_lazy_content_block', 'app_lazy_content_block') }}
+    {% set common_setting = _fn("C::t", 'common_setting') %}
+    {{ _s('profilegroup', common_setting.fetch('profilegroup', true) ) }}
+    {{ bbs_twig_template('AppForumBundle:PluginModule:layout_profile_info_base.html.twig', 'home/spacecp_credit_base' ) }}
+{% endblock %}
+
+{% block app_lazy_content_block %}
+    {% if app_pm.actionhelpers|length > 1 %}
+        {% block pm_action_helpers %}
+            <ul class="tb cl">
+                {% for action in app_pm.actionhelpers %}
+                    <li {% if action.isCurrentAction() %}class="a"{% endif %}><a href="{{ app_pm.getDispatchUrl(action) }}">{{ action.config.title }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endblock %}
+        {{ block('content') }}
+    {% else %}
+        {{ block('content') }}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    you should put { % set content_twig_templte = _self % } in your symfony twig template content block
+{% endblock %}

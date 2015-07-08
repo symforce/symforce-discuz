@@ -1,0 +1,21 @@
+
+{{ bbs_template('common/header') }}
+
+
+{% block pm_action_helpers %}
+    <h3>{{ app_pm.title }}</h3>
+    <ul>
+        {% for action in app_pm.actionhelpers %}
+            <li {% if action.isCurrentAction() %}class="current"{% endif %}><a href="{{ app_pm.getDispatchUrl(action) }}">{{ action.config.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+<div >
+    {% block content  %}
+
+    {% endblock %}
+</div>
+
+{{ bbs_template('common/footer') }}
+

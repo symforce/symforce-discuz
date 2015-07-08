@@ -1,0 +1,35 @@
+<!--{template common/header}-->
+<!--{subtemplate home/spacecp_header}-->
+<!--{hook/spacecp_credit_top}-->
+<!--{subtemplate home/spacecp_credit_header}-->
+
+<!--{if in_array($_GET['op'], array('base', 'buy', 'transfer', 'exchange'))}-->
+<ul class="creditl mtm bbda cl">
+    <!--{eval $creditid=0;}-->
+    <!--{if $_GET['op'] == 'base' && $_G['setting']['creditstrans']}-->
+    <!--{eval $creditid=$_G['setting']['creditstrans'];}-->
+    <!--{if $_G['setting']['extcredits'][$creditid]}-->
+    <!--{eval $credit=$_G['setting']['extcredits'][$creditid]; }-->
+    <li class="xi1 cl"><em><!--{if $credit[img]}--> {$credit[img]}<!--{/if}--> {$credit[title]}: </em><!--{echo getuserprofile('extcredits'.$creditid);}--> {$credit[unit]} &nbsp; <!--{if ($_G['setting']['ec_ratio'] && ($_G['setting']['ec_tenpay_opentrans_chnid'] || $_G['setting'][ec_tenpay_bargainor] || $_G['setting']['ec_account'])) || $_G['setting']['card']['open']}--><a href="home.php?mod=spacecp&ac=credit&op=buy" class="xi2">{lang card_use}&raquo;</a><!--{/if}--></li>
+    <!--{/if}-->
+    <!--{/if}-->
+    <!--{loop $_G['setting']['extcredits'] $id $credit}-->
+    <!--{if $id!=$creditid}-->
+    <li><em><!--{if $credit[img]}--> {$credit[img]}<!--{/if}--> {$credit[title]}: </em><!--{echo getuserprofile('extcredits'.$id);}--> {$credit[unit]}</li>
+    <!--{/if}-->
+    <!--{/loop}-->
+    <!--{if  $_GET['op'] == 'base'}-->
+    <li class="cl"><em>{lang credits}: </em>$_G['member']['credits'] <span class="xg1">( $creditsformulaexp )</span></li>
+    <!--{/if}-->
+    <!--{hook/spacecp_credit_extra}-->
+</ul>
+<!--{/if}-->
+    <!--{template sfapp:app_lazy_content_block}-->
+<!--{hook/spacecp_credit_bottom}-->
+</div>
+</div>
+<div class="appl">
+    <!--{subtemplate home/spacecp_footer}-->
+</div>
+</div>
+<!--{template common/footer}-->

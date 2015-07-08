@@ -1,0 +1,72 @@
+{# default Sliding pagination control implementation #}
+
+{% if pageCount > 0 %}
+    {% set first_page = '第一页' %}
+    {% set pre_page = '上一页' %}
+    {% set next_page = '下一页' %}
+    {% set last_page = '尾页' %}
+
+    <style type="text/css">
+        .pagination span a:hover{
+            text-decoration:none;
+        }
+        .pagination span a[href]{
+            text-decoration: underline !important ;
+        }
+    </style>
+    <div class="pagination">
+
+        {% if first is defined and current != first %}
+            <span class="first">
+                <a href="{{ _path(query|merge({(pageParameterName): first})) }}">{{ first_page }}</a>
+            </span>
+        {% else %}
+            <span class="first">
+                <a>{{ first_page }}</a>
+            </span>
+        {% endif %}
+
+        {% if previous is defined %}
+            <span class="previous">
+                <a href="{{  _path(query|merge({(pageParameterName): previous})) }}">{{ pre_page }}</a>
+            </span>
+        {% else %}
+            <span class="previous">
+                <a>{{ pre_page }}</a>
+            </span>
+        {% endif %}
+
+        {% for page in pagesInRange %}
+            {% if page != current %}
+                <span class="page">
+                    <a href="{{  _path(query|merge({(pageParameterName): page})) }}">{{ page }}</a>
+                </span>
+            {% else %}
+                <span class="current">{{ page }}</span>
+            {% endif %}
+        {% endfor %}
+
+        {% if next is defined %}
+            <span class="next">
+                <a href="{{  _path(query|merge({(pageParameterName): next})) }}">{{ next_page }}</a>
+            </span>
+        {% else %}
+            <span class="next">
+                <a>{{ next_page }}</a>
+            </span>
+        {% endif %}
+
+        {% if last is defined and current != last %}
+            <span class="last">
+                <a href="{{  _path(query|merge({(pageParameterName): last})) }}">{{ last_page }}</a>
+            </span>
+        {% else %}
+            <span class="last">
+                <a>{{ last_page }}</a>
+            </span>
+        {% endif %}
+
+        页数: {{ pageCount }}
+
+    </div>
+{% endif %}
